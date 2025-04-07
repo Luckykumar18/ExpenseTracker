@@ -17,6 +17,7 @@ const generateToken = (user) => {
  */
 export const registerUser = async (req, res) => {
   const { email, password } = req.body;
+  console.log("hello");
   try {
     let user = await User.findOne({ email });
     if (user) {
@@ -35,6 +36,7 @@ export const registerUser = async (req, res) => {
       path: "/",
       sameSite: "none",
 });
+    console.log("hello2");
     return res.status(201).json({ message: "User registered", user, token });
   } catch (error) {
     console.error("Error in registerUser:", error);
