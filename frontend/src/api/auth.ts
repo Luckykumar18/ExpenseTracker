@@ -1,7 +1,7 @@
 // src/api/auth.ts
 import axios from "axios";
 
-const API_URL = "http://localhost:5000/api/users";
+const API_URL = "https://expensetracker-nhrt.onrender.com/api/users";
 
 // Ensure cookies are sent with requests.
 axios.defaults.withCredentials = true;
