@@ -29,10 +29,12 @@ export const registerUser = async (req, res) => {
     const token = generateToken(user);
     res.cookie("token", token, {
       httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
-      maxAge: 7 * 24 * 60 * 60 * 1000,
-      sameSite: "strict",
-    });
+      domain: "expensetracker-nhrt.onrender.com",
+      signed: true,
+      secure: true,
+      path: "/",
+      sameSite: "none",
+});
     return res.status(201).json({ message: "User registered", user, token });
   } catch (error) {
     console.error("Error in registerUser:", error);
@@ -54,10 +56,12 @@ export const loginUser = async (req, res) => {
     const token = generateToken(user);
     res.cookie("token", token, {
       httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
-      maxAge: 7 * 24 * 60 * 60 * 1000,
-      sameSite: "strict",
-    });
+      domain: "expensetracker-nhrt.onrender.com",
+      signed: true,
+      secure: true,
+      path: "/",
+      sameSite: "none",
+});
     return res.status(200).json({ message: "Login successful", user, token });
   } catch (error) {
     console.error("Error in loginUser:", error);
@@ -113,9 +117,12 @@ export const getUserProfileById = async (req, res) => {
 
 export const logoutUser = (req, res) => {
   res.clearCookie("token", {
-    httpOnly: true,
-    secure: true,
-    sameSite: "strict",
-  });
+      httpOnly: true,
+      domain: "expensetracker-nhrt.onrender.com",
+      signed: true,
+      secure: true,
+      path: "/",
+      sameSite: "none",
+});
   return res.status(200).json({ message: "Logged out successfully" });
 };
