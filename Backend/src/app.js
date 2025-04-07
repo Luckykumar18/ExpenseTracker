@@ -15,7 +15,11 @@ connectDB();
 
 app.use(express.json());
 app.use(cookieParser());
-app.use(cors({ origin: "https://expensetracker-1-ka1c.onrender.com", credentials: true }));
+app.use(cors({
+    origin: 'https://expensetracker-1-ka1c.onrender.com', 
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    credentials: true, 
+}));
 app.use(bodyParser.json());
 app.use("/api/users", userRoutes);
 app.use("/api/transactions", transactionRoutes);
