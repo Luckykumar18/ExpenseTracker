@@ -59,7 +59,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const signOut = async () => {
     try {
       // Call your backend logout endpoint to clear the cookie
-      await axios.post("http://localhost:5000/api/users/logout", {}, { withCredentials: true });
+      await axios.post("https://expensetracker-nhrt.onrender.com/api/users/logout", {}, { withCredentials: true });
       setUser(null);
       window.location.href = "/login"; // Redirect after logout
     } catch (error) {
