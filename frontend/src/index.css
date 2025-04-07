@@ -1,0 +1,67 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+ 
+
+
+
+@layer base {
+  :root {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 224.3 76.3% 48%;
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-dashboard-dark text-dashboard-text;
+  }
+}
+
+.glass-card {
+  @apply bg-dashboard-card bg-opacity-50 backdrop-blur-lg border border-white/10 rounded-xl;
+}
+
+.dashboard-card {
+  @apply p-6 glass-card transition-all duration-300 hover:border-white/20;
+}
+
+.metric-card {
+  @apply relative flex flex-col items-center justify-center p-8 dashboard-card;
+}
+
+/* Custom gradients for cards */
+.gradient-dark-blue {
+  background: linear-gradient(135deg, #1e3c72 0%, #1e3c72 1%, #2a5298 100%);
+}
+
+.gradient-purple {
+  background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+}
+
+.gradient-green {
+  background: linear-gradient(135deg, #007991 0%, #78ffd6 100%);
+}
